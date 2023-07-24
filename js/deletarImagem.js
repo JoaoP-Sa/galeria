@@ -21,7 +21,10 @@ for(let i = 0; i < foto.length; i++){
             myformData.append('foto', fotoLink);
 
             fetch('deletar-foto.php', {method: 'post', body: myformData})
-            .then(() => alert('A imagem foi excluída com sucesso.'))
+            .then(() => {
+                alert('A imagem foi excluída com sucesso.');
+                window.location.reload();
+            })
             .catch(() => alert('Ocorreu algum erro durante a exclusão da foto.'));
 
 

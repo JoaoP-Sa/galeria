@@ -18,9 +18,9 @@
 
 
 
-        $query = "select imagens.rota, imagens.titulo, imagens.descricao from usuarios inner join imagens on usuarios.id = $_SESSION[user] and imagens.id_usuario = usuarios.id order by data;";
+        $query = "select imagens.rota, imagens.titulo, imagens.descricao, imagens.data from usuarios inner join imagens on usuarios.id = $_SESSION[user] and imagens.id_usuario = usuarios.id order by data;";
         $sql = $pdo -> query($query);
-        $imgInfo = $sql -> fetchAll(PDO::FETCH_ASSOC);
+        $imgInfo = $sql ? $sql -> fetchAll(PDO::FETCH_ASSOC) : [];
         
         
         foreach($imgInfo as $key){

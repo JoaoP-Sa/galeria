@@ -41,7 +41,7 @@
                     $titulo = tratar_dados($titulo);
                     $desc = tratar_dados($desc);
 
-                    $query = "insert into `imagens`(id_usuario, rota, titulo, descricao) values(?, ?, ?, ?)";
+                    $query = "insert into `imagens`(id_usuario, rota, titulo, descricao, data) values(?, ?, ?, ?, NOW())";
                     $sql = $pdo -> prepare($query);
     
                     $sql -> execute(array($_SESSION['user'], $rota, $titulo, $desc));
